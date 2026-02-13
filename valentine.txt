@@ -128,12 +128,12 @@ button:hover {
 
 <!-- Quả địa cầu -->
 <div class="globe" id="globe">
-    <img src="anh1.jpg">
-    <img src="e:\web-learning\valentines.html\anh2.jpg.jpg">
-    <img src="e:\web-learning\valentines.html\anh3.jpg.jpg">
-    <img src="e:\web-learning\valentines.html\anh4.jpg.jpg">
-    <img src="e:\web-learning\valentines.html\anh5.jpg.jpg">
-</div>
+   <img src="anh1.jpg">
+   <img src="anh2.jpg">
+   <img src="anh3.jpg">
+   <img src="anh4.jpg">
+   <img src="anh5.jpg">
+ </div>
 
 <script>
 const name = "Linh Anh Tr 💖";
@@ -210,4 +210,5 @@ setInterval(() => {
 
 </body>
 </html>
+
 
