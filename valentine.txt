@@ -128,7 +128,7 @@ button:hover {
 
 <!-- Quả địa cầu -->
 <div class="globe" id="globe">
-    <img src="e:\web-learning\valentines.html\anh1.jpg.jpg">
+    <img src="anh1.jpg">
     <img src="e:\web-learning\valentines.html\anh2.jpg.jpg">
     <img src="e:\web-learning\valentines.html\anh3.jpg.jpg">
     <img src="e:\web-learning\valentines.html\anh4.jpg.jpg">
@@ -210,3 +210,4 @@ setInterval(() => {
 
 </body>
 </html>
+
