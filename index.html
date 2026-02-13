@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valentine cho chị 💖</title>
+<title>Valentine cho Linh Anh Tr 💖</title>
 
 <style>
 body {
@@ -17,6 +17,7 @@ body {
     overflow: hidden;
 }
 
+/* Box chính */
 .box {
     background: white;
     border-radius: 20px;
@@ -25,16 +26,11 @@ body {
     text-align: center;
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
     animation: float 3s ease-in-out infinite;
+    z-index: 2;
 }
 
-h1 {
-    color: #ff4d6d;
-    font-size: 22px;
-}
-
-p {
-    font-size: 16px;
-}
+h1 { color: #ff4d6d; font-size: 22px; }
+p { font-size: 16px; }
 
 button {
     margin-top: 15px;
@@ -47,41 +43,78 @@ button {
     cursor: pointer;
     transition: 0.2s;
 }
-
 button:hover {
     background: #ff1f4a;
     transform: scale(1.05);
 }
 
-.qr-box {
-    margin-top: 15px;
-    display: none;
-}
-
-.qr-box img {
-    width: 160px;
-    border-radius: 18px;
-    border: 4px solid #ff4d6d;
-    padding: 6px;
-    background: white;
-}
-
+/* Tim rơi */
 .heart {
     position: fixed;
     color: red;
     font-size: 20px;
     animation: fall linear forwards;
 }
-
 @keyframes fall {
     from { transform: translateY(-10vh); opacity: 1; }
     to { transform: translateY(110vh); opacity: 0; }
 }
-
 @keyframes float {
     0%,100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
 }
+
+/* Quả địa cầu ảnh */
+.globe {
+    position: fixed;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    transform-style: preserve-3d;
+    animation: spin 18s linear infinite;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.globe img {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+.globe {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    transform-style: preserve-3d;
+    animation: spin 20s linear infinite;
+    opacity: 0;
+    pointer-events: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    perspective: 1200px;
+    z-index: 3;
+}
+
+.globe img {
+    position: absolute;
+    width: 95px;
+    height: 95px;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+
+@keyframes spin {
+    from { transform: translate(-50%, -50%) rotateY(0deg); }
+    to { transform: translate(-50%, -50%) rotateY(360deg); }
+}
+
 </style>
 </head>
 
@@ -89,62 +122,80 @@ button:hover {
 
 <div class="box">
     <h1 id="title">💘 Valentine 💘</h1>
-    <p id="text">Chị ơi, bấm để mở lời nhắn nha 💌</p>
+    <p id="text">Chị Linh Anh Tr ơi, bấm mở quà nha 💌</p>
     <button onclick="nextStep()">Mở 💝</button>
+</div>
 
-    <div class="qr-box" id="qr">
-        <p>📱 Quét QR trái tim để nhận bất ngờ 💖</p>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=I%20Love%20You%20%E2%9D%A4" alt="QR Valentine ❤️">
-    </div>
+<!-- Quả địa cầu -->
+<div class="globe" id="globe">
+    <img src="e:\web-learning\valentines.html\anh1.jpg.jpg">
+    <img src="e:\web-learning\valentines.html\anh2.jpg.jpg">
+    <img src="e:\web-learning\valentines.html\anh3.jpg.jpg">
+    <img src="e:\web-learning\valentines.html\anh4.jpg.jpg">
+    <img src="e:\web-learning\valentines.html\anh5.jpg.jpg">
 </div>
 
 <script>
-const name = "Tên chị"; // 👉 Đổi tên chị tại đây
+const name = "Linh Anh Tr 💖";
 let step = 0;
 
 function nextStep() {
     const title = document.getElementById("title");
     const text = document.getElementById("text");
-    const qr = document.getElementById("qr");
 
     if (step === 0) {
         title.innerHTML = "💖 Gửi đến " + name;
-        text.innerHTML = "Chúc chị Valentine thật vui và ngọt ngào 🥰";
+        text.innerHTML = "Chị dễ thương, lãng mạn và đáng yêu lắm 🥰";
     }
 
     if (step === 1) {
         title.innerHTML = "💌 Lời nhắn riêng";
         text.innerHTML = 
         "Chị là người rất đặc biệt ✨<br>" +
-        "Mong chị luôn xinh đẹp, hạnh phúc và được yêu thương thật nhiều 💞";
+        "Mong chị luôn xinh đẹp và hạnh phúc 💞";
     }
 
     if (step === 2) {
-        title.innerHTML = "🎮 Mini Game";
+        title.innerHTML = "🌍 Điều bất ngờ";
         text.innerHTML = 
-        "Chị có muốn nhận quà Valentine không? 😏<br><br>" +
-        "<button onclick='win()'>Có 💕</button> " +
-        "<button onclick='troll()'>Không 😆</button>";
+        " ảnh đẹp của chị 💖<br>" +
+        " úm ba la xi bua ảnh xuất hiệnnn 😘";
+
+        document.getElementById("globe").style.opacity = 1;
+        arrangeGlobe();
+    }
+
+    if (step === 3) {
+        title.innerHTML = "💝 Kết thúc";
+        text.innerHTML = 
+        "Chị là món quà Valentine đẹp nhất 💘<br>" +
+        " cảm ơn chị trong những ngày qua đã đồng hành và giúp đỡ e vượt qua nổi đau này mong sau chị em mình cùng gắng bó lâu dài hơn nx nhé hehe cảm ơn chị iuu =>💌";
     }
 
     step++;
 }
 
-function win() {
-    document.getElementById("title").innerHTML = "💝 Phần thưởng mở khóa";
-    document.getElementById("text").innerHTML =
-    "Chị đã mở khóa quà 🎉<br>" +
-    "Quét QR trái tim bên dưới nha 💘";
-    document.getElementById("qr").style.display = "block";
+/* Sắp xếp ảnh thành hình cầu */
+function arrangeGlobe() {
+    const imgs = document.querySelectorAll(".globe img");
+    const radius = 130;
+    const total = imgs.length;
+
+    imgs.forEach((img, i) => {
+        const phi = Math.acos(-1 + (2 * i) / total);
+        const theta = Math.sqrt(total * Math.PI) * phi;
+
+        const x = radius * Math.cos(theta) * Math.sin(phi);
+        const y = radius * Math.sin(theta) * Math.sin(phi);
+        const z = radius * Math.cos(phi);
+
+        img.style.transform = `
+            translate3d(${x}px, ${y}px, ${z}px)
+        `;
+    });
 }
 
-function troll() {
-    document.getElementById("title").innerHTML = "😝 Dù chị chọn gì";
-    document.getElementById("text").innerHTML =
-    "Chị vẫn là người dễ thương nhất 💗";
-}
-
-// Tim rơi
+/* Tim rơi */
 setInterval(() => {
     const heart = document.createElement("div");
     heart.classList.add("heart");
@@ -154,7 +205,7 @@ setInterval(() => {
     document.body.appendChild(heart);
 
     setTimeout(() => heart.remove(), 5000);
-}, 160);
+}, 150);
 </script>
 
 </body>
